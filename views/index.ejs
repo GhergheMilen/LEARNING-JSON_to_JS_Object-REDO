@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <main class="hero-section">
+      <% if(locals.laptop) { %>
+      <article class="preview hidden">
+        <h2><%= (laptop.Denumire) %></h2>
+        <h3>COMPONENTS</h3>
+        <ul>
+          <li>
+           Display: <%= laptop.Display.Dimensiune %>,<%= laptop.Display.Rezolutie %>
+          </li>
+          <li>Processor: <%= laptop.Procesor.Model %>, <%= laptop.Procesor.Nuclee %></li>
+          <li>Memory: <%= laptop.Memorie_RAM.Capacitate %></li>
+          <li>Storage: <%= laptop.Stocare.SSD %></li>
+          <li>Graphics Card:
+            <%= laptop.Placa_video.Model %> ,<%= laptop.Placa_video.Memorie %>
+          </li>
+        </ul>
+        <% } else { %>
+        <h1>PREVIEW THE <strong>NEXT GEN</strong> LAPTOP</h1>
+        <% } %>
+      </article>
+      <form action="/post" method="post">
+        <button type="submit" value="tuf" name="choice">TUF</button>
+        <button type="submit" value="cyborg" name="choice">CYBORG</button>
+        <button type="submit" value="loq" name="choice">LOQ</button>
+      </form>
+    </main>
+  </body>
 </html>

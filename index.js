@@ -1,4 +1,4 @@
-import express from "express";
+import express, { json, urlencoded } from "express";
 
 const app = express();
 const port = 3000;
@@ -129,8 +129,31 @@ const laptopJSON = `[
 ]
 `;
 
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+
+let data;
+
 app.get("/", (req, res) => {
-  res.render("index.ejs", {});
+  res.render("index.ejs", { laptop: data });
+});
+
+app.post("/post", (req, res) => {
+  switch (req.body.choice) {
+    case "tuf":
+      data = JSON.parse(laptopJSON)[0];
+      break;
+    case "cyborg":
+      data = JSON.parse(laptopJSON)[1];
+      break;
+    case "loq":
+      data = JSON.parse(laptopJSON)[2];
+      break;
+    default:
+      console.log("Error sending data on /post");
+      break;
+  }
+  res.redirect("/");
 });
 
 app.listen(port, () => {
