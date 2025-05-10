@@ -1,0 +1,41 @@
+:root{
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.d-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.row{
+        flex-direction: row;
+    }
+    &.column{
+        flex-direction: column;
+    }
+}
+
+
+@media screen and (max-width:576px){
+    .container{
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media screen and (min-width:577px)and (max-width:992px){
+    .container{
+        padding:1rem 3rem;
+    }
+}
+
+@media screen and (max-width:993px){
+    .container{
+        padding: 1rem 6rem;
+    }
+}

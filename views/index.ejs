@@ -8,18 +8,23 @@
   <body>
     <main class="hero-section">
       <% if(locals.laptop) { %>
-      <article class="preview hidden">
+      <article class="preview">
         <h2><%= (laptop.Denumire) %></h2>
         <h3>COMPONENTS</h3>
         <ul>
           <li>
-           Display: <%= laptop.Display.Dimensiune %>,<%= laptop.Display.Rezolutie %>
+            Display: <%= laptop.Display.Dimensiune %>,<%=
+            laptop.Display.Rezolutie %>
           </li>
-          <li>Processor: <%= laptop.Procesor.Model %>, <%= laptop.Procesor.Nuclee %></li>
+          <li>
+            Processor: <%= laptop.Procesor.Model %>, <%= laptop.Procesor.Nuclee
+            %>
+          </li>
           <li>Memory: <%= laptop.Memorie_RAM.Capacitate %></li>
           <li>Storage: <%= laptop.Stocare.SSD %></li>
-          <li>Graphics Card:
-            <%= laptop.Placa_video.Model %> ,<%= laptop.Placa_video.Memorie %>
+          <li>
+            Graphics Card: <%= laptop.Placa_video.Model %> ,<%=
+            laptop.Placa_video.Memorie %>
           </li>
         </ul>
         <% } else { %>
