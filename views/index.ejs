@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <main class="hero-section">
+    <main class="background d-flex column ">
       <% if(locals.laptop) { %>
-      <article class="preview">
+      <article class=" radial d-flex column container">
         <h2><%= (laptop.Denumire) %></h2>
         <h3>COMPONENTS</h3>
         <ul>
@@ -30,12 +31,12 @@
         <% } else { %>
         <h1>PREVIEW THE <strong>NEXT GEN</strong> LAPTOP</h1>
         <% } %>
+        <form action="/post" method="post">
+          <button type="submit" value="tuf" name="choice">TUF</button>
+          <button type="submit" value="cyborg" name="choice">CYBORG</button>
+          <button type="submit" value="loq" name="choice">LOQ</button>
+        </form>
       </article>
-      <form action="/post" method="post">
-        <button type="submit" value="tuf" name="choice">TUF</button>
-        <button type="submit" value="cyborg" name="choice">CYBORG</button>
-        <button type="submit" value="loq" name="choice">LOQ</button>
-      </form>
     </main>
   </body>
 </html>

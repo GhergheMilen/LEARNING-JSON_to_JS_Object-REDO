@@ -129,7 +129,7 @@ const laptopJSON = `[
 ]
 `;
 
-app.use(express.static("public"));
+app.use(express.static("assets"));
 app.use(express.urlencoded({ extended: true }));
 
 let data;
