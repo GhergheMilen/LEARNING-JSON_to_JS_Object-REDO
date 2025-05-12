@@ -138,7 +138,9 @@ app.get("/", (req, res) => {
   res.render("index.ejs", { laptop: data });
 });
 
+let selectedChoice = null;
 app.post("/post", (req, res) => {
+  selectedChoice = req.body.choice;
   switch (req.body.choice) {
     case "tuf":
       data = JSON.parse(laptopJSON)[0];
@@ -153,7 +155,7 @@ app.post("/post", (req, res) => {
       console.log("Error sending data on /post");
       break;
   }
-  res.redirect("/");
+  res.render("index.ejs", { laptop: data, selected: selectedChoice });
 });
 
 app.listen(port, () => {

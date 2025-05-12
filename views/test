@@ -1,0 +1,36 @@
+<form action="/post" method="post">
+          <div class="card-grid" >
+            <div class="flip-card btn1 btn">
+              <div class="card-inner">
+                <div class="card-front d-flex column">
+                  <div class="arrow arrow1"></div>
+                  <div class="arrow arrow2"></div>
+                  <div class="arrow arrow3"></div>
+                </div>
+                <div class="card-back">TUF</div>
+              </div>
+            </div>
+
+            <div class="flip-card btn2 btn">
+              <div class="card-inner">
+                <div class="card-front d-flex column">
+                  <div class="arrow arrow1"></div>
+                  <div class="arrow arrow2"></div>
+                  <div class="arrow arrow3"></div>
+                </div>
+                <div class="card-back">CYBORG</div>
+              </div>
+            </div>
+
+            <div class="flip-card btn3 btn">
+              <div class="card-inner">
+                <div class="card-front d-flex column">
+                  <div class="arrow arrow1"></div>
+                  <div class="arrow arrow2"></div>
+                  <div class="arrow arrow3"></div>
+                </div>
+                <div class="card-back">LOQ</div>
+              </div>
+            </div>
+          </div>
+        </form>

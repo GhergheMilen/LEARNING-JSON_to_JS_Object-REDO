@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Iceland"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <main class="background d-flex column ">
+    <main class="background d-flex column">
       <% if(locals.laptop) { %>
-      <article class=" radial d-flex column container">
+      <article class="radial d-flex column container">
         <h2><%= (laptop.Denumire) %></h2>
         <h3>COMPONENTS</h3>
         <ul>
@@ -31,12 +37,55 @@
         <% } else { %>
         <h1>PREVIEW THE <strong>NEXT GEN</strong> LAPTOP</h1>
         <% } %>
-        <form action="/post" method="post">
-          <button type="submit" value="tuf" name="choice">TUF</button>
-          <button type="submit" value="cyborg" name="choice">CYBORG</button>
-          <button type="submit" value="loq" name="choice">LOQ</button>
+        <form action="/post" method="post" class="card-grid">
+          <button
+            type="button"
+            value="tuf"
+            name="choice"
+            class="btn btn1 flip-card  "
+          >
+            <div class="card-inner <%= locals.selected === 'tuf' ? 'clicked' : '' %>">
+              <div class="card-front d-flex column">
+                <div class="arrow arrow1"></div>
+                <div class="arrow arrow2"></div>
+                <div class="arrow arrow3"></div>
+              </div>
+              <div class="card-back">TUF</div>
+            </div>
+          </button>
+          <button
+            type="button"
+            value="cyborg"
+            name="choice"
+            class="btn btn2 flip-card "
+          >
+            <div class="card-inner <%= locals.selected === 'cyborg' ? 'clicked' : '' %>">
+              <div class="card-front d-flex column">
+                <div class="arrow arrow1"></div>
+                <div class="arrow arrow2"></div>
+                <div class="arrow arrow3"></div>
+              </div>
+              <div class="card-back">CYBORG</div>
+            </div>
+          </button>
+          <button
+            type="button"
+            value="loq"
+            name="choice"
+            class="btn btn3 flip-card"
+          >
+            <div class="card-inner <%= locals.selected === 'loq' ? 'clicked' : '' %>">
+              <div class="card-front d-flex column  ">
+                <div class="arrow arrow1"></div>
+                <div class="arrow arrow2"></div>
+                <div class="arrow arrow3"></div>
+              </div>
+              <div class="card-back">LOQ</div>
+            </div>
+          </button>
         </form>
       </article>
     </main>
+    <script src="/script.js"></script>
   </body>
 </html>

@@ -7,10 +7,12 @@
   padding: 0;
   border: 0;
   box-sizing: border-box;
+  font-family: "Iceland";
+  color: #f0f0f0;
 }
 
-li{
-    list-style: none;
+li {
+  list-style: none;
 }
 
 .d-flex {
@@ -29,7 +31,11 @@ li{
 .background {
   height: 100dvh;
   width: 100dvw;
-  background-color: var(--bg-color);
+  background: radial-gradient(
+    200% 130% at 50% 35%,
+    rgb(0, 0, 0) 35%,
+    rgba(255, 255, 255) 100%
+  );
 }
 
 .radial {
@@ -39,10 +45,135 @@ li{
   left: 0;
   right: 0;
   background: radial-gradient(
-    200% 120% at 50% 30%,
-    rgba(231, 0, 0, 0) 35%,
-    rgba(53, 37, 99, 1) 100%
+    200% 130% at 50% 35%,
+    rgb(0, 0, 0) 35%,
+    rgba(255, 255, 255) 100%
   );
+}
+
+.btn {
+  width: 150px;
+  height: 100px;
+  border-radius: 15px;
+  border: none;
+  margin: 3rem 0.5rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+}
+
+.btn1 {
+  background-image: url(./tuf.jpg);
+  backdrop-filter: none;
+}
+
+.btn2 {
+  background-image: url(./cyborg.png);
+}
+
+.btn3 {
+  background-image: url(./loq.jpg);
+}
+
+.arrow1 {
+  background-image: url(./svg/arrow.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 128px;
+  height: 128px;
+  z-index: 6;
+}
+
+.arrow2 {
+  background-image: url(./svg/arrow.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 128px;
+  height: 128px;
+  z-index: 5;
+}
+
+.arrow3 {
+  background-image: url(./svg/arrow.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 128px;
+  height: 128px;
+  z-index: 4;
+}
+
+.flip-card {
+  perspective: 1000px;
+  width: 150px;
+  height: 100px;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.card-inner.clicked {
+  transform: rotateY(180deg);
+}
+
+
+.flip-card.clicked .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.arrow {
+  background-image: url("/svg/arrow.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s ease;
+}
+
+.animate-up .arrow1 {
+  transform: translateY(-20px);
+  transition-delay: 0s;
+}
+.animate-up .arrow2 {
+  transform: translateY(-20px);
+  transition-delay: 0.1s;
+}
+.animate-up .arrow3 {
+  transform: translateY(-20px);
+  transition-delay: 0.2s;
+}
+
+.card-grid {
+  display: flex;
+  gap: 2rem;
 }
 
 @media screen and (max-width: 576px) {
