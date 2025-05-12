@@ -20,6 +20,9 @@ li {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  &.preview {
+    gap: 1rem;
+  }
   &.row {
     flex-direction: row;
   }
@@ -126,7 +129,6 @@ li {
   transform: rotateY(180deg);
 }
 
-
 .flip-card.clicked .card-inner {
   transform: rotateY(180deg);
 }
@@ -146,6 +148,10 @@ li {
 
 .card-back {
   transform: rotateY(180deg);
+}
+
+.order {
+  font-size: 1rem;
 }
 
 .arrow {
@@ -174,6 +180,25 @@ li {
 .card-grid {
   display: flex;
   gap: 2rem;
+  margin: 2rem 0;
+}
+
+.img {
+  width: 400px;
+  height: 350px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(20px);
+  /* background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: transparent; */
+}
+
+.img.loaded {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media screen and (max-width: 576px) {

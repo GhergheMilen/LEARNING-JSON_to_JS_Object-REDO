@@ -137,25 +137,32 @@ let data;
 app.get("/", (req, res) => {
   res.render("index.ejs", { laptop: data });
 });
-
+let preview = null;
 let selectedChoice = null;
 app.post("/post", (req, res) => {
   selectedChoice = req.body.choice;
   switch (req.body.choice) {
     case "tuf":
       data = JSON.parse(laptopJSON)[0];
+      preview = "/tuf.jpg";
       break;
     case "cyborg":
       data = JSON.parse(laptopJSON)[1];
+      preview = "/cyborg.png";
       break;
     case "loq":
       data = JSON.parse(laptopJSON)[2];
+      preview = "/loq.jpg";
       break;
     default:
       console.log("Error sending data on /post");
       break;
   }
-  res.render("index.ejs", { laptop: data, selected: selectedChoice });
+  res.render("index.ejs", {
+    laptop: data,
+    selected: selectedChoice,
+    preview: preview,
+  });
 });
 
 app.listen(port, () => {

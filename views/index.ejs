@@ -14,37 +14,48 @@
   </head>
   <body>
     <main class="background d-flex column">
-      <% if(locals.laptop) { %>
-      <article class="radial d-flex column container">
-        <h2><%= (laptop.Denumire) %></h2>
-        <h3>COMPONENTS</h3>
-        <ul>
-          <li>
-            Display: <%= laptop.Display.Dimensiune %>,<%=
-            laptop.Display.Rezolutie %>
-          </li>
-          <li>
-            Processor: <%= laptop.Procesor.Model %>, <%= laptop.Procesor.Nuclee
-            %>
-          </li>
-          <li>Memory: <%= laptop.Memorie_RAM.Capacitate %></li>
-          <li>Storage: <%= laptop.Stocare.SSD %></li>
-          <li>
-            Graphics Card: <%= laptop.Placa_video.Model %> ,<%=
-            laptop.Placa_video.Memorie %>
-          </li>
-        </ul>
-        <% } else { %>
-        <h1>PREVIEW THE <strong>NEXT GEN</strong> LAPTOP</h1>
-        <% } %>
+      <% if(locals.laptop && locals.preview) { %>
+      <article class="radial d-flex column row">
+        <div class="d-flex column">
+          <h2><%= (laptop.Denumire) %></h2>
+          <div class="preview d-flex row">
+            <img src="<%= preview %>" alt="Laptop Preview" class="img" />
+            <div class="d-flex column">
+              <h3>COMPONENTS</h3>
+              <ul>
+                <li>
+                  Display: <%= laptop.Display.Dimensiune %>,<%=
+                  laptop.Display.Rezolutie %>
+                </li>
+                <li>
+                  Processor: <%= laptop.Procesor.Model %>, <%=
+                  laptop.Procesor.Nuclee %>
+                </li>
+                <li>Memory: <%= laptop.Memorie_RAM.Capacitate %></li>
+                <li>Storage: <%= laptop.Stocare.SSD %></li>
+                <li>
+                  Graphics Card: <%= laptop.Placa_video.Model %> ,
+                  <%=laptop.Placa_video.Memorie %>
+                </li>
+                <button class="order">ORDER NOW</button>
+              </ul>
+              <% } else { %>
+              <h1>PREVIEW THE <strong>NEXT GEN</strong> LAPTOP</h1>
+              <% } %>
+            </div>
+          </div>
+        </div>
+
         <form action="/post" method="post" class="card-grid">
           <button
             type="button"
             value="tuf"
             name="choice"
-            class="btn btn1 flip-card  "
+            class="btn btn1 flip-card"
           >
-            <div class="card-inner <%= locals.selected === 'tuf' ? 'clicked' : '' %>">
+            <div
+              class="card-inner <%= locals.selected === 'tuf' ? 'clicked' : '' %>"
+            >
               <div class="card-front d-flex column">
                 <div class="arrow arrow1"></div>
                 <div class="arrow arrow2"></div>
@@ -57,9 +68,11 @@
             type="button"
             value="cyborg"
             name="choice"
-            class="btn btn2 flip-card "
+            class="btn btn2 flip-card"
           >
-            <div class="card-inner <%= locals.selected === 'cyborg' ? 'clicked' : '' %>">
+            <div
+              class="card-inner <%= locals.selected === 'cyborg' ? 'clicked' : '' %>"
+            >
               <div class="card-front d-flex column">
                 <div class="arrow arrow1"></div>
                 <div class="arrow arrow2"></div>
@@ -74,8 +87,10 @@
             name="choice"
             class="btn btn3 flip-card"
           >
-            <div class="card-inner <%= locals.selected === 'loq' ? 'clicked' : '' %>">
-              <div class="card-front d-flex column  ">
+            <div
+              class="card-inner <%= locals.selected === 'loq' ? 'clicked' : '' %>"
+            >
+              <div class="card-front d-flex column">
                 <div class="arrow arrow1"></div>
                 <div class="arrow arrow2"></div>
                 <div class="arrow arrow3"></div>
